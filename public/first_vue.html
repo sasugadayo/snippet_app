@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+    <title>Snippet App</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ message }}</p>
+      <p>{{ message2 }}</p>
+      <button v-on:click="changeMsg">Change</button> <!-- 説明 2.12 -->
+    </div>
+    <script>
+
+      new Vue({
+        el: '#app',
+        data () {
+          return {
+            message: 'Hello Vue!',
+            // ここから追記する
+            message2: 'Hoge'
+            // ここまで追記する
+          }
+        },
+        mounted () {  // 説明 2.7
+          this.setMsg();  // 説明 2.8
+        },
+        methods: { // 説明 2.9
+          setMsg: function () { // 説明 2.10
+            this.message = 'Set Message'; // 説明 2.11
+          },
+          changeMsg: function() { // 説明 2.13
+            this.message = 'Changed Message'
+          },
+        }
+      })
+
+    </script>
+  </body>
+</html>
